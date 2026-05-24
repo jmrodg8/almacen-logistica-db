@@ -11,7 +11,7 @@ USE almacen_logistica;
 
 CREATE TABLE categorias (
     categoria_id INT UNSIGNED AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
     descripcion VARCHAR(255),
     
     CONSTRAINT pk_categorias PRIMARY KEY (categoria_id),
@@ -21,7 +21,7 @@ CREATE TABLE categorias (
 CREATE TABLE proveedores (
     proveedor_id INT UNSIGNED AUTO_INCREMENT,
     razon_social VARCHAR(255) NOT NULL,
-    contacto_nombre VARCHAR(100),
+    contacto_nombre VARCHAR(255),
     email VARCHAR(255),
     telefono VARCHAR(15),
     direccion TEXT,
@@ -47,7 +47,7 @@ CREATE TABLE clientes (
 CREATE TABLE productos (
     producto_id INT UNSIGNED AUTO_INCREMENT,
     categoria_id INT UNSIGNED NOT NULL, 
-    nombre VARCHAR(150) NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
     descripcion TEXT,
     precio_unitario DECIMAL(10, 2) NOT NULL,
     stock_actual INT UNSIGNED DEFAULT 0, 
@@ -92,7 +92,7 @@ CREATE TABLE historial_inventario (
     tipo_movimiento ENUM('Entrada', 'Salida', 'Ajuste_Positivo', 'Ajuste_Negativo') NOT NULL,
     cantidad INT UNSIGNED NOT NULL, 
     fecha_movimiento DATETIME DEFAULT CURRENT_TIMESTAMP, 
-    motivo VARCHAR(255),
+    motivo TEXT,
 
     CONSTRAINT pk_historial_inventario PRIMARY KEY (movimiento_id),
     CONSTRAINT fk_historial_productos FOREIGN KEY (producto_id) 
