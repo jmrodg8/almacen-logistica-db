@@ -47,11 +47,11 @@ El diseño se divide en **dos bloques** para garantizar la consistencia de los d
 
 ### Tablas Maestras (Independientes)
 
-| Tabla | Descripción | Registros |
+| Tabla | Descripción |
 |---|---|---|
-| `categorias` | Clasificación de productos | ~10-50 |
-| `proveedores` | Información de proveedores | ~50-500 |
-| `clientes` | Datos de clientes | ~100-10K |
+| `categorias` | Clasificación de productos |
+| `proveedores` | Información de proveedores |
+| `clientes` | Datos de clientes |
 
 ### Tablas Relacionales (Dependientes)
 
