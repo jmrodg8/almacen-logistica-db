@@ -11,7 +11,7 @@
 Diseñada con integridad referencial, trazabilidad completa de movimientos y optimización para entornos de producción.
 
 [Características](#-características) •
-[Modelo E-R](#-modelo-entidad-relación) •
+[Modelo E-R](https://github.com/jmrodg8/almacen-logistica-db/tree/main#%EF%B8%8F-modelo-entidad-relaci%C3%B3n) •
 [Estructura](#-estructura-de-tablas) •
 [Instalación](#-instalación) •
 [Consultas Útiles](#-consultas-útiles)
