@@ -160,15 +160,6 @@ JOIN detalle_pedidos dp ON p.pedido_id = dp.pedido_id
 JOIN productos pr ON dp.producto_id = pr.producto_id
 ORDER BY p.fecha_pedido DESC;
 ```
-
----
-
-## 📝 Notas de Diseño
-
-- **Precios históricos:** `detalle_pedidos.precio_unitario_historico` captura el precio al momento de la venta, protegiendo contra cambios futuros de tarifa.
-- **Stock automático:** Los triggers en `historial_inventario` actualizan `productos.stock_actual` automáticamente.
-- **Borrado seguro:** Las tablas maestras usan `ON DELETE RESTRICT` para prevenir eliminación accidental de datos con dependencias.
-
 ---
 
 ## 📄 Licencia
