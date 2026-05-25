@@ -8,56 +8,17 @@
 
 **Base de datos relacional para gestión integral de almacén, inventario y logística.**
 
-Diseñada con integridad referencial, trazabilidad completa de movimientos y optimización para entornos de producción.
-
-[Características](#-características) •
+"Una base de datos rápida y organizada que evita errores y guarda el historial completo de un almacén."
 [Modelo E-R](https://github.com/jmrodg8/almacen-logistica-db/tree/main#%EF%B8%8F-modelo-entidad-relaci%C3%B3n) •
-[Estructura](#-estructura-de-tablas) •
-[Instalación](#-instalación) •
-[Consultas Útiles](#-consultas-útiles)
+[Instalación](#-instalación) 
 
 </div>
 
 ---
 
-## ✨ Características
-
-| Característica | Detalle |
-|---|---|
-| 🔗 **Integridad Referencial** | Claves foráneas con políticas `RESTRICT` / `CASCADE` para borrado y actualización |
-| 📋 **Trazabilidad de Inventario** | Registro completo de movimientos (Entradas, Salidas, Ajustes) con timestamps |
-| 🌍 **Soporte Unicode** | `utf8mb4_unicode_ci` para caracteres internacionales y emojis |
-
----
-
 ## 🗺️ Modelo Entidad-Relación
 
-El diseño se divide en **dos bloques** para garantizar la consistencia de los datos:
-
----
-
 ![Diagrama Entidad-Relación](./Entidad-Relación%20\(E-R\).png)
-
----
-
-## 📁 Estructura de Tablas
-
-### Tablas Maestras (Independientes)
-
-| Tabla | Descripción |
-|---|---|
-| `categorias` | Clasificación de productos |
-| `proveedores` | Información de proveedores |
-| `clientes` | Datos de clientes |
-
-### Tablas Relacionales (Dependientes)
-
-| Tabla | Depende de | Descripción |
-|---|---|---|
-| `productos` | `categorias` | Catálogo de productos con stock |
-| `pedidos` | `clientes` | Órdenes de compra |
-| `detalle_pedidos` | `pedidos`, `productos` | Líneas de cada pedido |
-| `historial_inventario` | `productos`, `proveedores` | Trazabilidad de movimientos |
 
 ---
 
@@ -88,75 +49,6 @@ mysql -u root -p almacen_logistica < seed.sql
 2. Ejecutar el script completo (⚡ icono o `Ctrl+Shift+Enter`)
 3. Verificar que las tablas se crearon correctamente
 
----
-
-## 📊 Consultas Útiles
-
-### Stock actual por categoría
-
-```sql
-SELECT
-    c.nombre AS categoria,
-    COUNT(p.producto_id) AS total_productos,
-    SUM(p.stock_actual) AS stock_total,
-    SUM(p.stock_actual * p.precio_unitario) AS valor_inventario
-FROM categorias c
-JOIN productos p ON c.categoria_id = p.categoria_id
-GROUP BY c.categoria_id, c.nombre
-ORDER BY valor_inventario DESC;
-```
-
-### Productos bajo stock mínimo
-
-```sql
-SELECT
-    p.nombre,
-    p.stock_actual,
-    p.stock_minimo,
-    (p.stock_minimo - p.stock_actual) AS unidades_faltantes,
-    pr.razon_social AS proveedor
-FROM productos p
-LEFT JOIN proveedores pr ON p.producto_id IN (
-    SELECT producto_id FROM historial_inventario
-    WHERE tipo_movimiento = 'Entrada'
-    ORDER BY fecha_movimiento DESC LIMIT 1
-)
-WHERE p.stock_actual < p.stock_minimo
-ORDER BY unidades_faltantes DESC;
-```
-
-### Historial de movimientos de un producto
-
-```sql
-SELECT
-    hi.fecha_movimiento,
-    hi.tipo_movimiento,
-    hi.cantidad,
-    hi.motivo,
-    pr.razon_social AS proveedor
-FROM historial_inventario hi
-LEFT JOIN proveedores pr ON hi.proveedor_id = pr.proveedor_id
-WHERE hi.producto_id = 1
-ORDER BY hi.fecha_movimiento DESC;
-```
-
-### Pedidos por cliente con detalle
-
-```sql
-SELECT
-    cl.nombre AS cliente,
-    p.fecha_pedido,
-    p.estado,
-    pr.nombre AS producto,
-    dp.cantidad,
-    dp.precio_unitario_historico,
-    (dp.cantidad * dp.precio_unitario_historico) AS subtotal
-FROM pedidos p
-JOIN clientes cl ON p.cliente_id = cl.cliente_id
-JOIN detalle_pedidos dp ON p.pedido_id = dp.pedido_id
-JOIN productos pr ON dp.producto_id = pr.producto_id
-ORDER BY p.fecha_pedido DESC;
-```
 ---
 
 ## 📄 Licencia
