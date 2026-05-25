@@ -37,6 +37,7 @@ Diseñada con integridad referencial, trazabilidad completa de movimientos y opt
 
 El diseño se divide en **dos bloques** para garantizar la consistencia de los datos:
 
+---
 
 ![Diagrama Entidad-Relación](./Entidad-Relación%20\(E-R\).png)
 
@@ -74,7 +75,7 @@ El diseño se divide en **dos bloques** para garantizar la consistencia de los d
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/Arbolencio/almacen-logistica-db.git
+git clone https://github.com/jmrodg8/almacen-logistica-db.git
 cd almacen-logistica-db
 
 # Crear la base de datos
