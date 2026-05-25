@@ -26,10 +26,7 @@ Diseñada con integridad referencial, trazabilidad completa de movimientos y opt
 |---|---|
 | 🔗 **Integridad Referencial** | Claves foráneas con políticas `RESTRICT` / `CASCADE` para borrado y actualización |
 | 📋 **Trazabilidad de Inventario** | Registro completo de movimientos (Entradas, Salidas, Ajustes) con timestamps |
-| 🛒 **Control de Pedidos** | Flujo de ventas con estados dinámicos y precios históricos inmutables |
 | 🌍 **Soporte Unicode** | `utf8mb4_unicode_ci` para caracteres internacionales y emojis |
-| ⚡ **Rendimiento** | Índices optimizados para consultas frecuentes |
-| 🔒 **Consistencia** | Triggers para actualización automática de stock y totales |
 
 ---
 
