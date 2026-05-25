@@ -11,7 +11,8 @@
 Una base de datos rápida y organizada que evita errores y guarda el historial completo de un almacén.
 
 [Modelo E-R](https://github.com/jmrodg8/almacen-logistica-db/tree/main#%EF%B8%8F-modelo-entidad-relaci%C3%B3n) •
-[Instalación](#-instalación) 
+[Instalación](#-instalación) •
+[Licencia](https://github.com/jmrodg8/almacen-logistica-db/blob/main/README.md#-licencia)
 
 </div>
 
