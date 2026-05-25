@@ -48,7 +48,7 @@ El diseño se divide en **dos bloques** para garantizar la consistencia de los d
 ### Tablas Maestras (Independientes)
 
 | Tabla | Descripción |
-|---|---|---|
+|---|---|
 | `categorias` | Clasificación de productos |
 | `proveedores` | Información de proveedores |
 | `clientes` | Datos de clientes |
