@@ -170,6 +170,17 @@ ORDER BY p.fecha_pedido DESC;
 
 ---
 
+## 📄 Licencia
+
+Este proyecto está bajo la licencia [MIT](./LICENSE).
+
+---
+
+<div align="center">
+
+**Desarrollado con ❤️ por [Arbolencio](https://github.com/Arbolencio)**
+
+</div>
 <div align="center">
 
 **Desarrollado con ❤️ por [Arbolencio](https://github.com/Arbolencio)**
