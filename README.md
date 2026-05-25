@@ -8,7 +8,7 @@
 
 **Base de datos relacional para gestión integral de almacén, inventario y logística.**
 
-Script de creacion en MySQL optimizada para evitar fallos en el inventario y garantizar el rastreo total de cada movimiento de almacén.
+Script de creación en MySQL optimizada para evitar fallos en el inventario y garantizar el rastreo total de cada movimiento de almacén.
 
 [Modelo E-R](https://github.com/jmrodg8/almacen-logistica-db/tree/main#%EF%B8%8F-modelo-entidad-relaci%C3%B3n) •
 [Instalación](#-instalación) •
